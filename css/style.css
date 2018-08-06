@@ -1,0 +1,79 @@
+/*
+  
+  Fully capable in most modern web browsers
+  Has been tested on IE9, 10, and 11, Chrome, FF on windows
+  and Chrome, FF and Safari on mac.
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: inherit;
+}
+
+.test_accordion {
+  float: left;
+  width: 500px;
+  margin: 20px;
+}
+
+.tab {
+  position: relative;
+  float: left;
+  margin-bottom: 1px;
+  width: 100%;
+  color: #333;
+  overflow: hidden;
+  font-family: Roboto, sans-serif;
+}
+
+input {
+  opacity: 0;
+  z-index: -1;
+  text-indent: -9999px;
+  position: absolute;
+  display: none;
+
+  /*Bug in Firefox on Windows*/
+}
+
+label {
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, 1);
+  color: #999;
+  float: left;
+  padding: 5px 0 5px 10px;
+  line-height: 2;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.accordion_content {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.75s;
+  -o-transition: max-height 0.75s;
+  transition: max-height 0.75s;
+  float: left;
+  background: rgba(0, 0, 0, 0.21);
+}
+
+.accordion_content p {
+  margin: 20px;
+}
+
+input:checked ~ .accordion_content {
+  max-height: 50em;
+}
+
+input:checked ~ label {
+  background: #036;
+  color: white;
+}
